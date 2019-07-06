@@ -1,0 +1,13 @@
+devops: 
+gunicorn --worker-class=gevent --worker-connections=1000 --workers=3 --bind 10.23.216.159:5000 IB_API_Wrapper:app --daemon
+
+ib_01: 
+gunicorn --worker-class=gevent --worker-connections=1000 --workers=17 --bind 10.23.218.102:5000 IB_API_Wrapper:app --daemon
+
+gunicorn --config=file:resources/config/gunicorn_config.py  IB_API_Wrapper:app
+
+Add instaclient to environment
+ln -s libclntsh.so.12.1 libclntsh.so (only once)
+ln -s libocci.so.12.1 libocci.so (only once)
+ls -l
+export LD_LIBRARY_PATH=$(pwd)

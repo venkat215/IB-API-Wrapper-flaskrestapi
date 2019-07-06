@@ -1,0 +1,3 @@
+{"jwt_expire_mins" : 30,
+ "jwt_type": "typ",
+ "issuer" : "IB_API_Wrapper"}
